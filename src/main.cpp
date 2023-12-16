@@ -1,14 +1,15 @@
-#include <iostream>
-#include "node.h"
+#include "linked_list.h"
 
 int main(int argc, char **argv)
 {
     node x;
+    linked_list s;
 
-    x.set_next(new node(1));
-    x.get_next()->set_next(new node(2));
-    std::cout << x.get_value() << " ";
-    std::cout << x.get_next()->get_value() << " ";
-    std::cout << x.get_next()->get_next()->get_value() << "\n";
+    s.add_value(1);
+    s.add_value(2);
+    s.add_value(3);
+    s.add_value(4);
+    s.add_value(5);
+    std::cout << s.to_string() << std::endl;
     return 0;
 }
