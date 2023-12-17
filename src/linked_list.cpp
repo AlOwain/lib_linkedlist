@@ -7,7 +7,7 @@ linked_list::linked_list()
     head = new node;
 }
 
-void linked_list::add_value(int value)
+void linked_list::append_value(int value)
 {
     node *temp = head;
     while (temp->get_next() != nullptr)
@@ -17,14 +17,27 @@ void linked_list::add_value(int value)
     size++;
 }
 
+int linked_list::search(int value)
+{
+    node *trav = head;
+    int index = 0;
+    while (trav->get_next() != nullptr)
+    {
+        if (trav->get_value() == value) return index;
+        index++;
+        trav = trav->get_next();
+    }
+    return -1;
+}
+
 short linked_list::remove_by_index(int index)
 {
     // Can not delete an item with a larger index than the current size.
-    if (size < index) { return 1; }
+    if (size < index) { return -1; }
 
     // The last value in the list is always empty, therefore;
     // if head->get_next() does not exist, it means the list is empty.
-    if (head->get_next() == nullptr) { return 2; }
+    if (head->get_next() == nullptr) { return -2; }
 
     if (index == 0)
     {
@@ -55,18 +68,20 @@ short linked_list::remove_by_index(int index)
     }
     
     // Catch all error.
-    return 3;
+    return -3;
 }
 
 std::string linked_list::to_string()
 {
-    node *temp = head;
+    if (head->get_next() == nullptr) return "Empty list";
+    node *trav = head;
     std::string list;
-    while (temp->get_next() != nullptr)
+    while (1)
     {
-        list += std::to_string(temp->get_value());
+        list += std::to_string(trav->get_value());
+        if (trav->get_next()->get_next() == nullptr) break;
         list += "->";
-        temp = temp->get_next();
+        trav = trav->get_next();
     }
     list += "\nSize: ";
     list += std::to_string(size);
