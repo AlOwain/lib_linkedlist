@@ -6,7 +6,7 @@ public:
     node(int value);
 
     void set_value(int value);
-    void create_next();
+    void set_next(node *item);
 
     int get_value();
     node* get_next();
