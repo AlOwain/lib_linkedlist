@@ -71,6 +71,11 @@ short linked_list::remove_by_index(int index)
     return -3;
 }
 
+short linked_list::remove_by_value(int value)
+{
+    return remove_by_index(search(value));
+}
+
 std::string linked_list::to_string()
 {
     if (head->get_next() == nullptr) return "Empty list";

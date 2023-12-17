@@ -19,14 +19,12 @@ int main(int argc, char **argv)
     s.remove_by_index(0);
     s.remove_by_index(0);
     s.remove_by_index(0);
-    s.remove_by_index(0);
-    s.remove_by_index(0);
-    s.remove_by_index(0);
-    s.remove_by_index(0);
-    s.remove_by_index(0);
-    s.remove_by_index(0);
-    s.remove_by_index(10);
+    s.remove_by_index(-1);
     s.remove_by_index(103304);
     std::cout << s.to_string() << std::endl;
+    std::cout << s.search(8) << std::endl;
+    s.remove_by_value(9);
+    std::cout << s.to_string() << std::endl;
+
     return 0;
 }

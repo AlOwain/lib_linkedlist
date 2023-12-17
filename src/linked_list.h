@@ -15,13 +15,21 @@ public:
     //          - std::string:  It returns a string of the values seperate by a whitespace (" ").
     std::string to_string();
 
-    // remove_by_index:
+    // remove_by_index(int index):
     //      parameters:
     //          - int:          Index of the item you want to remove (starts from 0).
     //      returns:
     //          - 0:            On success.
     //          - !0:           Error code.
     short remove_by_index(int index);
+
+    // remove_by_value(int value):
+    //      parameters:
+    //          - int:          Value of the item you want to remove.
+    //      returns:
+    //          - 0:            On success.
+    //          - !0:           Error code.
+    short remove_by_value(int value);
 
     // search(int value):
     //      parameters:
