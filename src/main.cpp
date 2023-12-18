@@ -5,26 +5,14 @@ int main(int argc, char **argv)
     node x;
     linked_list s;
 
-    s.append_value(0);
-    s.append_value(1);
-    s.append_value(2);
-    s.append_value(3);
-    s.append_value(4);
-    s.append_value(5);
-    s.append_value(6);
-    s.append_value(7);
-    s.append_value(8);
-    s.append_value(9);
+    s.add_value(1, 0);
+    s.add_value(2, -1);
+    s.add_value(3, 40);
+    s.add_value(4, 2);
+    s.add_value(5, 0);
+    s.add_value(6, 1);
+    s.add_value(7, 10000000);
+    s.add_value(9, 3);
     std::cout << s.to_string() << std::endl;
-    s.remove_by_index(0);
-    s.remove_by_index(0);
-    s.remove_by_index(0);
-    s.remove_by_index(-1);
-    s.remove_by_index(103304);
-    std::cout << s.to_string() << std::endl;
-    std::cout << s.search(8) << std::endl;
-    s.remove_by_value(9);
-    std::cout << s.to_string() << std::endl;
-
     return 0;
 }

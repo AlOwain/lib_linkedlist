@@ -1,6 +1,7 @@
 #include "node.h"
 
 node::node() : node(0) {}
+
 node::node(int value)
 {
     next = nullptr;

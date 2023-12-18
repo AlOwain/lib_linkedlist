@@ -5,10 +5,12 @@ class linked_list {
 public:
     linked_list();
     
-    // append_value(int value):
+
+    // add_value(int value, int index):
     //      parameters:
-    //          - int:          It takes the value you want to append, and adds it to the end of the list.
-    void append_value(int value);
+    //          - int:          It takes the value you want to add, and adds it at the given index.
+    //          - int:          It takes the placement of the value you want to add (the index).
+    short add_value(int value, int index);
     
     // to_string()
     //      returns:
@@ -41,4 +43,14 @@ public:
 private:
     int size;
     node *head;
+
+    // add_start(int value):
+    //      parameters:
+    //          - int:          It takes the value you want to add, and adds it to the start of the list.
+    void add_start(int value);
+
+    // add_end(int value):
+    //      parameters:
+    //          - int:          It takes the value you want to add, and adds it to the end of the list.
+    void add_end(int value);
 };
