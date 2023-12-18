@@ -10,7 +10,7 @@ public:
     //      parameters:
     //          - int:          It takes the value you want to add, and adds it at the given index.
     //          - int:          It takes the placement of the value you want to add (the index).
-    short add_value(int value, int index);
+    void add_value(int value, int index);
     
     // to_string()
     //      returns:
