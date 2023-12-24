@@ -53,4 +53,16 @@ private:
     //      parameters:
     //          - int:          It takes the value you want to add, and adds it to the end of the list.
     void add_end(int value);
+
+    // remove_start():
+    //      returns:
+    //          - 0:            On success.
+    //          - <0:           On failure, it returns the error code.
+    short remove_start();
+
+    // remove_end():
+    //      returns:
+    //          - 0:            On success.
+    //          - <0:           On failure, it returns the error code.
+    short remove_end();
 };

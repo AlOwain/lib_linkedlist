@@ -1,7 +1,7 @@
 #include "linked_list.h"
 #include <string>
 
-linked_list::linked_list() { size = 0; }
+linked_list::linked_list() { size = 0; head = nullptr; }
 
 // FIXME: is the last value at size or size + 1?
 void linked_list::add_start(int value)
@@ -42,34 +42,45 @@ void linked_list::add_value(int value, int index)
 
 int linked_list::search(int value)
 {
+    if (size <= 0) return -1;
+
     node *trav = head;
-    int index = 0;
-    while (trav->get_next() != nullptr)
+    for (int index = 0; index < size; index++)
     {
         if (trav->get_value() == value) return index;
-        index++;
         trav = trav->get_next();
     }
-    return -1;
+    return -2;
+}
+
+short linked_list::remove_start()
+{
+    node *temp = head;
+    head = head->get_next();
+    delete temp;
+    size--;
+    return 0;
+}
+
+short linked_list::remove_end()
+{
+    node *curr = head;
+    while (curr->get_next()->get_next() != nullptr)
+        curr = curr->get_next();
+    delete curr->get_next();
+    curr->set_next(nullptr);
+    size--;
+    return 0;
 }
 
 short linked_list::remove_by_index(int index)
 {
     // Can not delete an item with a larger index than the current size.
-    if (size < index) { return -1; }
+    if (size < index) return -1;
+    if (size <= 0) return -2;
 
-    // The last value in the list is always empty, therefore;
-    // if head->get_next() does not exist, it means the list is empty.
-    if (head->get_next() == nullptr) { return -2; }
-
-    if (index == 0)
-    {
-        node *temp = head;
-        head = head->get_next();
-        delete temp;
-        size--;
-        return 0;
-    }
+    if (index == 0) return remove_start();
+    else if (index == size - 1) return remove_end();
     else
     {
         int i = 1;
@@ -93,10 +104,7 @@ short linked_list::remove_by_index(int index)
     return -3;
 }
 
-short linked_list::remove_by_value(int value)
-{
-    return remove_by_index(search(value));
-}
+short linked_list::remove_by_value(int value) { return remove_by_index(search(value)); }
 
 std::string linked_list::to_string()
 {
