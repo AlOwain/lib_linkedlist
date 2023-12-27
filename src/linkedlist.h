@@ -1,9 +1,10 @@
 #include <iostream>
+#include <string>
 #include "node.h"
 
-class linked_list {
+class linkedlist {
 public:
-    linked_list();
+    linkedlist();
     
 
     // add_value(int value, int index):

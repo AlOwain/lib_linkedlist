@@ -1,16 +1,13 @@
-all: build/linked_list
+all: build build/lib_linkedlist.a
 
-build/linked_list: build/main.o build/node.o build/linked_list.o
-	g++ build/main.o build/node.o build/linked_list.o -o build/linked_list
-
-build/main.o: src/main.cpp | build
-	g++ -c src/main.cpp -o build/main.o
-	
-build/linked_list.o: src/linked_list.cpp
-	g++ -c src/linked_list.cpp -o build/linked_list.o
+build/lib_linkedlist.a: build/node.o build/linkedlist.o
+	ar rcs build/lib_linkedlist.a build/node.o build/linkedlist.o
 
 build/node.o: src/node.cpp
 	g++ -c src/node.cpp -o build/node.o
+
+build/linkedlist.o: src/linkedlist.cpp
+	g++ -c src/linkedlist.cpp -o build/linkedlist.o
 
 build:
 	mkdir -p build

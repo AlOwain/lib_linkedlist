@@ -1,10 +1,9 @@
-#include "linked_list.h"
-#include <string>
+#include "linkedlist.h"
 
-linked_list::linked_list() { size = 0; head = nullptr; }
+linkedlist::linkedlist() { size = 0; head = nullptr; }
 
 // FIXME: is the last value at size or size + 1?
-void linked_list::add_start(int value)
+void linkedlist::add_start(int value)
 {
     if (size == 0) { head = new node(value); return; }
     node *second_item = head->get_next();
@@ -13,7 +12,7 @@ void linked_list::add_start(int value)
     head->get_next()->set_next(second_item);
 }
 
-void linked_list::add_end(int value)
+void linkedlist::add_end(int value)
 {
     node *prev = head;
     while (prev->get_next() != nullptr)
@@ -21,7 +20,7 @@ void linked_list::add_end(int value)
     prev->set_next(new node(value));
 }
 
-void linked_list::add_value(int value, int index)
+void linkedlist::add_value(int value, int index)
 {
     if (index <= 0 || size == 0) add_start(value);
     else if (index >= size) add_end(value);
@@ -40,7 +39,7 @@ void linked_list::add_value(int value, int index)
     size++;
 }
 
-int linked_list::search(int value)
+int linkedlist::search(int value)
 {
     if (size <= 0) return -1;
 
@@ -53,7 +52,7 @@ int linked_list::search(int value)
     return -2;
 }
 
-short linked_list::remove_start()
+short linkedlist::remove_start()
 {
     node *temp = head;
     head = head->get_next();
@@ -62,7 +61,7 @@ short linked_list::remove_start()
     return 0;
 }
 
-short linked_list::remove_end()
+short linkedlist::remove_end()
 {
     node *curr = head;
     while (curr->get_next()->get_next() != nullptr)
@@ -73,7 +72,7 @@ short linked_list::remove_end()
     return 0;
 }
 
-short linked_list::remove_by_index(int index)
+short linkedlist::remove_by_index(int index)
 {
     // Can not delete an item with a larger index than the current size.
     if (size < index) return -1;
@@ -104,9 +103,9 @@ short linked_list::remove_by_index(int index)
     return -3;
 }
 
-short linked_list::remove_by_value(int value) { return remove_by_index(search(value)); }
+short linkedlist::remove_by_value(int value) { return remove_by_index(search(value)); }
 
-std::string linked_list::to_string()
+std::string linkedlist::to_string()
 {
     node *trav = head;
     std::string list;
