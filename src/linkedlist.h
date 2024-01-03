@@ -2,9 +2,9 @@
 #include <string>
 #include "node.h"
 
-class linkedlist {
+class LinkedList {
 public:
-    linkedlist();
+    LinkedList();
     
 
     // add_value(int value, int index):
@@ -43,7 +43,7 @@ public:
     int search(int value);
 private:
     int size;
-    node *head;
+    Node *head;
 
     // add_start(int value):
     //      parameters:

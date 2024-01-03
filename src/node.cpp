@@ -1,15 +1,15 @@
 #include "node.h"
 
-node::node() : node(0) {}
+Node::Node() : Node(0) {}
 
-node::node(int value)
+Node::Node(int value)
 {
     next = nullptr;
     set_value(value);
 }
 
-void node::set_value(int value) { this->value = value; }
-void node::set_next(node *item) { this->next = item; }
+void Node::set_value(int value) { this->value = value; }
+void Node::set_next(Node *item) { this->next = item; }
 
-int node::get_value() { return value; }
-node* node::get_next() { return next; }
+int Node::get_value() { return value; }
+Node* Node::get_next() { return next; }

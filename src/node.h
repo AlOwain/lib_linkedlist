@@ -1,14 +1,14 @@
-class node {
+class Node {
 public:
-    node();
-    node(int value);
+    Node();
+    Node(int value);
 
     void set_value(int value);
-    void set_next(node *item);
+    void set_next(Node *item);
 
     int get_value();
-    node* get_next();
+    Node* get_next();
 private:
     int value;
-    node *next;
+    Node *next;
 };

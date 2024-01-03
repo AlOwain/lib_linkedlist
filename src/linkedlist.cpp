@@ -1,49 +1,49 @@
 #include "linkedlist.h"
 
-linkedlist::linkedlist() { size = 0; head = nullptr; }
+LinkedList::LinkedList() { size = 0; head = nullptr; }
 
 // FIXME: is the last value at size or size + 1?
-void linkedlist::add_start(int value)
+void LinkedList::add_start(int value)
 {
-    if (size == 0) { head = new node(value); return; }
-    node *second_item = head->get_next();
-    head->set_next(new node(head->get_value()));
+    if (size == 0) { head = new Node(value); return; }
+    Node *second_item = head->get_next();
+    head->set_next(new Node(head->get_value()));
     head->set_value(value);
     head->get_next()->set_next(second_item);
 }
 
-void linkedlist::add_end(int value)
+void LinkedList::add_end(int value)
 {
-    node *prev = head;
+    Node *prev = head;
     while (prev->get_next() != nullptr)
         prev = prev->get_next();
-    prev->set_next(new node(value));
+    prev->set_next(new Node(value));
 }
 
-void linkedlist::add_value(int value, int index)
+void LinkedList::add_value(int value, int index)
 {
     if (index <= 0 || size == 0) add_start(value);
     else if (index >= size) add_end(value);
     else {
         int iterator = 0;
-        node *prev = head, *curr = head;
+        Node *prev = head, *curr = head;
         while (curr->get_next() != nullptr && iterator != index)
         {
             prev = curr;
             curr = curr->get_next();
             iterator++;
         }
-        prev->set_next(new node(value));
+        prev->set_next(new Node(value));
         prev->get_next()->set_next(curr);
     }
     size++;
 }
 
-int linkedlist::search(int value)
+int LinkedList::search(int value)
 {
     if (size <= 0) return -1;
 
-    node *trav = head;
+    Node *trav = head;
     for (int index = 0; index < size; index++)
     {
         if (trav->get_value() == value) return index;
@@ -52,18 +52,18 @@ int linkedlist::search(int value)
     return -2;
 }
 
-short linkedlist::remove_start()
+short LinkedList::remove_start()
 {
-    node *temp = head;
+    Node *temp = head;
     head = head->get_next();
     delete temp;
     size--;
     return 0;
 }
 
-short linkedlist::remove_end()
+short LinkedList::remove_end()
 {
-    node *curr = head;
+    Node *curr = head;
     while (curr->get_next()->get_next() != nullptr)
         curr = curr->get_next();
     delete curr->get_next();
@@ -72,7 +72,7 @@ short linkedlist::remove_end()
     return 0;
 }
 
-short linkedlist::remove_by_index(int index)
+short LinkedList::remove_by_index(int index)
 {
     // Can not delete an item with a larger index than the current size.
     if (size < index) return -1;
@@ -83,8 +83,8 @@ short linkedlist::remove_by_index(int index)
     else
     {
         int i = 1;
-        node *prev = head;
-        node *curr = head->get_next();
+        Node *prev = head;
+        Node *curr = head->get_next();
         while (curr->get_next() != nullptr)
         {
             if (i == index)
@@ -103,11 +103,11 @@ short linkedlist::remove_by_index(int index)
     return -3;
 }
 
-short linkedlist::remove_by_value(int value) { return remove_by_index(search(value)); }
+short LinkedList::remove_by_value(int value) { return remove_by_index(search(value)); }
 
-std::string linkedlist::to_string()
+std::string LinkedList::to_string()
 {
-    node *trav = head;
+    Node *trav = head;
     std::string list;
 
     while (trav->get_next() != nullptr)
