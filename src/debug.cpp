@@ -15,6 +15,7 @@ int main(int argc, char **argv)
     x.add_start(283);
     x.add_end(3423);
     x.add_start(5);
+    std::cout << "List size: " << x.size() << std::endl;
     std::cout << x.to_string() << std::endl;
     x.remove_start();
     std::cout << x.to_string() << std::endl;
@@ -25,6 +26,8 @@ int main(int argc, char **argv)
     x.remove_by_index(0);
 
     // x is empty
+    std::cout << "List size: " << x.size() << std::endl;
+    
     std::cout << x.to_string() << std::endl;
     x.add_value(1, 2131);
     std::cout << x.to_string() << std::endl;

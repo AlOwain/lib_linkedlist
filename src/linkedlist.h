@@ -63,8 +63,13 @@ public:
     //          - 0:            On success.
     //          - <0:           On failure, it returns the error code.
     short remove_end();
+
+    // size():
+    //      returns:
+    //          - int:          Size of the list.
+    int size();
 private:
-    int size;
+    int m_size;
     Node *head;
 
     void add_to_empty(int value);
