@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include "node.h"
@@ -5,7 +6,6 @@
 class LinkedList {
 public:
     LinkedList();
-    
 
     // add_value(int value, int index):
     //      parameters:
@@ -41,18 +41,15 @@ public:
     //          - <0:           On success, it returns the index to the item.
     //          - >0:           On failure, it returns the error code.
     int search(int value);
-private:
-    int size;
-    Node *head;
 
     // add_start(int value):
     //      parameters:
-    //          - int:          It takes the value you want to add, and adds it to the start of the list.
+    //          - int:            It takes the value you want to add, and adds it to the start of the list.
     void add_start(int value);
 
     // add_end(int value):
     //      parameters:
-    //          - int:          It takes the value you want to add, and adds it to the end of the list.
+    //          - int:            It takes the value you want to add, and adds it to the end of the list.
     void add_end(int value);
 
     // remove_start():
@@ -66,4 +63,9 @@ private:
     //          - 0:            On success.
     //          - <0:           On failure, it returns the error code.
     short remove_end();
+private:
+    int size;
+    Node *head;
+
+    void add_to_empty(int value);
 };
