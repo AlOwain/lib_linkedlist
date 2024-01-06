@@ -70,7 +70,7 @@ public:
     int size();
 private:
     int m_size;
-    Node *head;
+    Node<int> *head;
 
     void add_to_empty(int value);
 };

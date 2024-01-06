@@ -1,16 +1,17 @@
 #pragma once
 
+template <typename T>
 class Node {
 public:
-    Node();
-    Node(int value);
+    Node() { next = nullptr; }
+    Node(T value) { next = nullptr; set_value(value); }
 
-    void set_value(int value);
-    void set_next(Node *item);
+    void set_value(T value) { this->value = value; }
+    void set_next(Node<T> *item) { this->next = item; }
 
-    int get_value();
-    Node* get_next();
+    T get_value() { return value; }
+    Node* get_next() { return next; }
 private:
-    int value;
+    T value;
     Node *next;
 };
