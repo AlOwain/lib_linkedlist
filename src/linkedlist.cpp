@@ -171,6 +171,27 @@ public:
     //      returns:
     //          - int:          Size of the list.
     int size() { return m_size; }
+
+    // [] Operator:
+    //      parameters:
+    //          - int:          The index of the provided value.
+    //      returns:
+    //          - int:          Value at the provided index.
+    Node<T> *operator[](int index)
+    {
+        // FIXME: Should throw error.
+        if (index < 0) exit(-1);
+        if (index >= m_size) exit(-1);
+
+        Node<T> *trav = head;
+        int i = 0;
+        while (i != index)
+        {
+            trav = trav->get_next();
+            i++;
+        }
+        return trav;
+    }
 private:
     int m_size;
     Node<T> *head;

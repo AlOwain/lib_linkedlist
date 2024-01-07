@@ -7,10 +7,10 @@ release: clean build build/lib_linkedlist.a
 build/lib_linkedlist.a: src/node.cpp build/linkedlist.o
 	ar rcs build/lib_linkedlist.a build/linkedlist.o
 
-build/debug: build/debug.o src/node.cpp src/linkedlist.cpp
+build/debug: build/debug.o
 	g++ build/debug.o -o build/debug
 
-build/debug.o: src/debug.cpp
+build/debug.o: src/debug.cpp src/node.cpp src/linkedlist.cpp
 	g++ -c src/debug.cpp -o build/debug.o
 
 build:
