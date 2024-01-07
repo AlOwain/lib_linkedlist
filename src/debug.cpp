@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 
     // x is empty
     std::cout << "List size: " << x.size() << std::endl;
-    
+
     std::cout << x << std::endl;
     x.add_value(1, 2131);
     std::cout << x << std::endl;
@@ -45,7 +45,7 @@ int main(int argc, char **argv)
     std::cout << x << std::endl;
     x.remove_by_index(1999);
     std::cout << x << std::endl;
-    
+
     // x is empty
     x.add_start(0);
     x.remove_by_index(1);
