@@ -12,9 +12,14 @@ public:
 
     T get_value() { return value; }
     Node* get_next() { return next; }
-
-    std::ostream& operator<<(std::ostream& stream) { stream << this->get_value(); return stream; }
 private:
     T value;
     Node *next;
 };
+
+template <typename T>
+std::ostream& operator<<(std::ostream &stream, Node<T> node)
+{
+    stream << node.get_value();
+    return stream;
+}

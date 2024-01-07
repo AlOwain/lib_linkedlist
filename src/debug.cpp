@@ -55,13 +55,10 @@ int main(int argc, char **argv)
 
     y.add_end('s');
     y.add_end('r');
-    y.add_end('b');
-    std::cout << y[0]->get_value() << std::endl;
-    std::cout << y[1]->get_value() << std::endl;
-    std::cout << y[2]->get_value() << std::endl;
-    Node u('x');
-    std::cout << u.get_value() << std::endl;
+    std::cout << y[0] << " | " << y[0].get_value() << std::endl;
+    std::cout << y[1] << " | " << y[1].get_value() << std::endl;
+    Node u('b');
+    std::cout << u << " | " << u.get_value() << std::endl;
     int s = 4;
-    // std::cout << y << std::endl;
     return 0;
 }
