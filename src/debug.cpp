@@ -1,9 +1,9 @@
-#include "linkedlist.h"
-#include "node.h"
+#include <iostream>
+#include "linkedlist.cpp"
 
 int main(int argc, char **argv)
 {
-    LinkedList x;
+    LinkedList<int> x;
 
     x.add_end(3);
     x.remove_end();
@@ -51,5 +51,12 @@ int main(int argc, char **argv)
     x.remove_by_index(1);
     std::cout << x.to_string() << std::endl;
 
+    LinkedList<char> y;
+
+    y.add_end('s');
+    y.add_end('r');
+    y.add_end('b');
+    int s = 4;
+    // std::cout << y << std::endl;
     return 0;
 }
