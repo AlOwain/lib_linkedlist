@@ -16,40 +16,40 @@ int main(int argc, char **argv)
     x.add_end(3423);
     x.add_start(5);
     std::cout << "List size: " << x.size() << std::endl;
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
     x.remove_start();
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
     x.remove_end();
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
     x.remove_by_index(1);
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
     x.remove_by_index(0);
 
     // x is empty
     std::cout << "List size: " << x.size() << std::endl;
     
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
     x.add_value(1, 2131);
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
     x.add_value(6, 0);
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
     x.add_value(3298, 1);
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
     x.add_value(2981, -3);
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
     x.remove_by_index(x.search(3298));
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
     x.remove_by_index(10010);
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
     x.remove_by_index(-199);
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
     x.remove_by_index(1999);
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
     
     // x is empty
     x.add_start(0);
     x.remove_by_index(1);
-    std::cout << x.to_string() << std::endl;
+    std::cout << x << std::endl;
 
     LinkedList<char> y;
 
@@ -59,6 +59,7 @@ int main(int argc, char **argv)
     std::cout << y[1] << " | " << y[1].get_value() << std::endl;
     Node u('b');
     std::cout << u << " | " << u.get_value() << std::endl;
+
     int s = 4;
     return 0;
 }

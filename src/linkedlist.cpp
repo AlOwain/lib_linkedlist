@@ -30,28 +30,6 @@ public:
         m_size++;
     }
     
-    // to_string()
-    //      returns:
-    //          - std::string:  It returns a string of the values seperate by a whitespace (" ").
-    std::string to_string()
-    {
-        if (m_size == 0) return "";
-
-        Node<T> *trav = head;
-        std::string list;
-
-        while (trav->get_next() != nullptr)
-        {
-            list += std::to_string(trav->get_value());
-            list += ", ";
-            trav = trav->get_next();
-        }
-
-        list += std::to_string(trav->get_value());
-
-        return list;
-    }
-
     // remove_by_index(int index):
     //      parameters:
     //          - int:          Index of the item you want to remove (starts from 0).
@@ -191,6 +169,26 @@ public:
             i++;
         }
         return *trav;
+    }
+
+    // << Operator:
+    //      description:
+    //          -               Adds the list to a stream and returns the stream.
+    friend std::ostream& operator<<(std::ostream &stream, LinkedList<T> list)
+    {
+        if (list.size() == 0) return stream;
+
+        Node<T> *trav = list.head;
+
+        while (trav->get_next() != nullptr)
+        {
+            stream << trav->get_value() << ", ";
+            trav = trav->get_next();
+        }
+
+        stream << trav->get_value();
+
+        return stream;
     }
 
 private:
