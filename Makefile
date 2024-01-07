@@ -1,11 +1,4 @@
 all: build build/debug
-	echo "DEBUG VERSION"
-
-release: clean build build/lib_linkedlist.a
-	echo "LIB VERSION"
-
-build/lib_linkedlist.a: src/node.cpp build/linkedlist.o
-	ar rcs build/lib_linkedlist.a build/linkedlist.o
 
 build/debug: build/debug.o
 	g++ build/debug.o -o build/debug

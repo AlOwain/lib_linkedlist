@@ -1,5 +1,5 @@
 #include <iostream>
-#include "linkedlist.cpp"
+#include "linkedlist.h"
 
 int main(int argc, char **argv)
 {
@@ -60,6 +60,19 @@ int main(int argc, char **argv)
     Node u('b');
     std::cout << u << " | " << u.get_value() << std::endl;
 
-    int s = 4;
+    x.add_end(1);
+    x.add_end(8);
+    LinkedList<LinkedList<int>> ll;
+    ll.add_end(x);
+    LinkedList<int> f;
+    f.add_end(2);
+    f.add_end(2);
+    ll.add_end(f);
+
+    std::cout << ll[0] << std::endl;
+    std::cout << ll[1] << std::endl;
+
+    std::cout << ll << std::endl;
+
     return 0;
 }

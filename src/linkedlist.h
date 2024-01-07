@@ -1,6 +1,5 @@
 #pragma once
-#include <string>
-#include "node.cpp"
+#include "node.h"
 
 template <typename T>
 class LinkedList {
