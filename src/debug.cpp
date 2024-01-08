@@ -74,5 +74,17 @@ int main(int argc, char **argv)
 
     std::cout << ll << std::endl;
 
+    LinkedList<int> j;
+
+    j.add_start(1);
+    j.add_start(2);
+    j.add_start(3);
+
+    std::cout << j << std::endl;
+    j.remove_start();
+    j.remove_start();
+    j.remove_start();
+    std::cout << j << std::endl;
+
     return 0;
 }
