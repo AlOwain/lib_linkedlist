@@ -1,5 +1,5 @@
 #include <iostream>
-#include "linkedlist.h"
+#include "../lib/linkedlist.h"
 
 int main(int argc, char **argv)
 {
